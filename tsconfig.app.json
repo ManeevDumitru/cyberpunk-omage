@@ -5,8 +5,32 @@
   "compilerOptions": {
     "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
 
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "target": "ESNext",
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "moduleDetection": "force",
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    "strict": false,
+    "noUncheckedIndexedAccess": false,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitOverride": true,
+    "lib": [
+      "ESNext",
+      "dom",
+      "dom.iterable",
+      "webworker"
+    ],
+    "jsx": "preserve",
+    "jsxImportSource": "vue",
+    "useDefineForClassFields": true,
+    "noImplicitThis": true,
+    "allowSyntheticDefaultImports": true,
+
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["src/*"]
     }
   }
 }
