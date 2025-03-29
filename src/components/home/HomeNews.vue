@@ -1,66 +1,56 @@
 <script setup lang="ts">
-import { breakpointsTailwind, useBreakpoints } from "@vueuse/core";
-
 import { NEWS } from "@/static/News.ts";
-
-const breakpoints = useBreakpoints(breakpointsTailwind);
 
 const newsItems = NEWS;
 </script>
 
 <template>
-  <section class="sectionNews">
-    <div class="sectionNewsContainer">
-      <div class="sectionNewsTitle">
-        <h2>News</h2>
-      </div>
-      <ul class="sectionNewsBox">
-        <li>
-          <a href="">
-            <div class="snMainBox relative">
-              <div class="snMainBoxT relative">
-                <div class="rowTop">
-                  <span id="snMDate">19.11.2019</span>
-                  <span id="replaceMDate">More</span>
-                </div>
-                <div class="rowBottom">
-                  <h3>Welcome the finalists of the "Cyberpunk 2077" cosplay contest!</h3>
-                </div>
+  <section class="sectionNews mx-auto mb-12">
+    <div class="sectionNewsTitle text-center lg:text-left my-8 mx-4">
+      <span class="text-custom-underline">News</span>
+    </div>
+    <ul class="sectionNewsBox mx-auto">
+      <li>
+        <a href="#">
+          <div class="snMainBox relative">
+            <div class="snMainBoxT relative">
+              <div class="rowTop">
+                <span id="snMDate">19.11.2019</span>
+                <span id="replaceMDate">More</span>
+              </div>
+              <div class="rowBottom">
+                <h3>Welcome the finalists of the "Cyberpunk 2077" cosplay contest!</h3>
               </div>
               <div class="snMainBoxB">
                 The best cosplay costumes we're chosen and we present you the results!
               </div>
-              <i></i>
             </div>
-          </a>
-        </li>
-        <li v-for="(news, index) in newsItems" :key="index">
-          <a :href="news.link">
-            <div class="newsBox">
-              <div class="newsBoxT relative">
-                <div class="relative">
-                  <span class="replaceSDate">More</span>
-                  <span class="date">{{ news.date }}</span>
-                </div>
-                <h3>{{ news.title }}</h3>
+            <i></i>
+          </div>
+        </a>
+      </li>
+      <li v-for="(news, index) in newsItems" :key="index">
+        <a :href="news.link">
+          <div class="newsBox">
+            <div class="newsBoxT relative">
+              <div class="relative">
+                <span class="replaceSDate">More</span>
+                <span class="date">{{ news.date }}</span>
               </div>
+              <h3>{{ news.title }}</h3>
             </div>
-          </a>
-        </li>
-      </ul>
-    </div>
+          </div>
+        </a>
+      </li>
+    </ul>
   </section>
 </template>
 
-<style scoped>
-.sectionNewsContainer {
+<style scoped lang="postcss">
+.sectionNews {
   max-width: 1400px;
-  margin: auto;
   color: #cdcdcd;
   display: grid;
-  grid-template-rows: 150px;
-  grid-template-columns: 1fr;
-  padding: 0 0 75px 0;
 }
 
 .sectionNewsTitle {
@@ -100,7 +90,7 @@ const newsItems = NEWS;
   box-sizing: border-box;
   padding: 0 30px 30px;
   display: grid;
-  grid-template-rows: 1fr 1fr;
+  //grid-template-rows: 1fr 1fr;
   text-align: left;
 }
 
@@ -158,10 +148,6 @@ const newsItems = NEWS;
 }
 
 .snMainBoxB {
-  position: absolute;
-  bottom: 50px;
-  padding-left: 55px;
-  width: 300px;
   font-size: 20px;
 }
 
@@ -213,5 +199,13 @@ const newsItems = NEWS;
 
 .newsBox:hover .replaceSDate {
   display: block;
+}
+
+@media screen and (max-width: 1000px) {
+  .sectionNewsBox {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(5, 1fr);
+  }
 }
 </style>

@@ -40,7 +40,7 @@ const changeGroup = (
   items: HomeGalleryImagesInterface[] | HomeGalleryImageInterface[],
 ) => {
   const maxGroup = items.length;
-
+  
   if (maxGroup === 1) {
     return;
   }
@@ -63,57 +63,57 @@ const changeGroup = (
   <section class="sectionGallery">
     <div class="sectionGalleryContainer">
       <div class="sectionGalleryName my-8">
-        <h2 class="relative sm:w-[fit-content] mx-auto">GALLERY</h2>
+        <span class="relative sm:w-[fit-content] mx-auto text-5xl">GALLERY</span>
       </div>
 
-      <div class="sectionGalleryCategory my-8">
-        <div class="categoriesContainer">
-          <button
-            v-for="(item, index) in categories"
-            :key="index"
-            :class="{
+      <template v-if="!isMobile">
+        <div class="sectionGalleryCategory lg:mt-8 mb-8">
+          <div class="categoriesContainer">
+            <button
+              v-for="(item, index) in categories"
+              :key="index"
+              :class="{
               activeB: isActiveCategory(item),
             }"
-            @click="changeCategory(item)"
-          >
-            <span> {{ item.title }} </span>
-            <span> {{ item.value }} </span>
-            <i></i>
-          </button>
-        </div>
-      </div>
-
- 
-      <div v-if="!isMobile" class="sectionGallerySlides relative">
-        <div
-          v-for="(category, categoryIndex) in categories"
-          :key="categoryIndex"
-          :id="`sgsBox${categoryIndex + 1}`"
-        >
-          <template v-if="isActiveCategory(category)">
-            <div
-              v-for="(group, groupIndex) in category.images"
-              :key="groupIndex"
-              :class="`sliderBox${categoryIndex + 1}`"
+              @click="changeCategory(item)"
             >
-              <div :class="`sb${categoryIndex + 1}Container${groupIndex + 1}`">
-                <template v-if="selectedGalleryCategoryGroup === groupIndex + 1">
-                  <div class="sbMBox" :style="getStyling(group.main.url)" />
-                  <div
-                    v-for="(additional, additionalIndex) in group.additional"
-                    :key="additionalIndex"
-                    :style="getStyling(additional.url)"
-                  />
-                </template>
-              </div>
-            </div>
-          </template>
-
-          <div class="buttonPrev" @click="changeGroup(-1, category.images)" />
-          <div class="buttonNext" @click="changeGroup(+1, category.images)" />
+              <span> {{ item.title }} </span>
+              <span> {{ item.value }} </span>
+              <i></i>
+            </button>
+          </div>
         </div>
-      </div>
-      <div v-if="isMobile" class="gallery-mobile relative">
+        <div class="sectionGallerySlides relative">
+          <div
+            v-for="(category, categoryIndex) in categories"
+            :key="categoryIndex"
+            :id="`sgsBox${categoryIndex + 1}`"
+          >
+            <template v-if="isActiveCategory(category)">
+              <div
+                v-for="(group, groupIndex) in category.images"
+                :key="groupIndex"
+                :class="`sliderBox${categoryIndex + 1}`"
+              >
+                <div :class="`sb${categoryIndex + 1}Container${groupIndex + 1}`">
+                  <template v-if="selectedGalleryCategoryGroup === groupIndex + 1">
+                    <div class="sbMBox" :style="getStyling(group.main.url)" />
+                    <div
+                      v-for="(additional, additionalIndex) in group.additional"
+                      :key="additionalIndex"
+                      :style="getStyling(additional.url)"
+                    />
+                  </template>
+                </div>
+              </div>
+              
+              <div class="buttonPrev" @click="changeGroup(-1, category.images)" />
+              <div class="buttonNext" @click="changeGroup(+1, category.images)" />
+            </template>
+          </div>
+        </div>
+      </template>
+      <div v-else class="gallery-mobile relative">
         <template v-for="(item, index) in mobileImages" :key="index">
           <div
             v-if="selectedGalleryCategoryGroup === index + 1"
@@ -129,7 +129,7 @@ const changeGroup = (
   </section>
 </template>
 
-<style scoped>
+<style scoped lang="postcss">
 .sectionGallery {
   background: black;
 }
@@ -150,7 +150,7 @@ const changeGroup = (
   text-align: center;
 }
 
-.sectionGalleryName h2::after {
+.sectionGalleryName span::after {
   content: " ";
   background: url(@/assets/img/utility/underline.png);
   height: 10px;

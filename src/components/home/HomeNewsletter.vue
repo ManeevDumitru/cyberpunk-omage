@@ -4,50 +4,57 @@ import BaseTextField from "@/components/general/BaseTextField.vue";
 import { ref } from "vue";
 import BaseCheckbox from "@/components/general/BaseCheckbox.vue";
 import { useForm } from "vee-validate";
+import Alert from "@/components/general/Alert.vue";
 
+const showAlert = ref(false);
+const alertText = ref("Operation completed successfully!");
+
+const formValid = ref(false);
 const email = ref("");
 const checked = ref(false);
 const errors = ref({});
 
 const schema = yup.object({
   email: yup.string().required().email(),
-  check: yup.boolean().optional()
+  check: yup.boolean().optional(),
 });
 
 const { validate, values, setErrors } = useForm({
   validationSchema: schema,
 });
 
+const validateForm = async () => {
+  const form = await validate();
+  formValid.value = form.valid;
+}
+
 const submit = async () => {
   try {
-    const form = await validate();
-	  
-		if (!form.valid) {
-			return;
-		}
-		
+    alertText.value = "Operation completed successfully!";
+    showAlert.value = true;
+    
   } catch (e) {
-	  if (e && e.data?.errors) {
-		  setErrors(e.data.errors);
-	  }
+    if (e && e.data?.errors) {
+      setErrors(e.data.errors);
+    }
   } finally {
-	  console.log(errors)
+    console.log(errors);
   }
 };
 </script>
 
 <template>
-  <section class="sectionSpamContainer">
-    <form @submit.prevent="submit">
+  <section class="sectionSpamContainer my-8">
+    <form @submit.prevent="submit" @input="validateForm()">
       <div class="sectionSpamBox">
-        <div class="sectionSpam my-8 mx-auto">
-          <div class="fieldLeft">
-            <div class="fieldLeftContainer mx-2">
+        <div class="sectionSpam block lg:grid py-12 mx-4 lg:mx-auto">
+          <div class="fieldLeft mt-4 lg:ml-2 mr-4">
+            <div class="fieldLeftContainer">
               <h2 class="text-5xl mb-2">Be the first one!</h2>
               <p class="text-lg">Subscribe to get news about development of Cyberpunk 2077</p>
             </div>
           </div>
-          <div class="fieldMiddle">
+          <div class="fieldMiddle my-6">
             <div class="inputBox">
               <BaseTextField
                 v-model="email"
@@ -72,21 +79,26 @@ const submit = async () => {
               </p>
             </div>
           </div>
-          <div class="fieldRight">
-            <div class="fieldRightBox">
-              <button class="custom-button" type="submit">Submit</button>
-            </div>
+          <div class="fieldRight flex items-center justify-center lg:justify-end ml-2 mr-4">
+            <button class="custom-button" type="submit" :disabled="!formValid">Submit</button>
           </div>
         </div>
       </div>
     </form>
   </section>
+  
+  <Alert
+    :show="showAlert"
+    :text="alertText"
+    @close="showAlert = false"
+  />
 </template>
 
 <style scoped lang="scss">
 :deep(.custom) {
   .text-field__label {
     font-family: "Odibee Sans", cursive;
+    color: black;
 
     &:not(.text-field__label--active) {
       font-size: 32px;
@@ -128,19 +140,6 @@ const submit = async () => {
 .checkboxBox p {
   display: grid;
   grid-template-rows: 1fr 1fr;
-}
-
-input#checkbox {
-  align-self: baseline;
-  background: none;
-  border: none;
-}
-
-.fieldRightBox {
-  padding-top: 50px;
-}
-
-.checkboxBox p {
   font-size: 16px;
   font-family: "Arial", monospace;
   letter-spacing: 0.1px;
@@ -152,29 +151,35 @@ input#checkbox {
   text-decoration: underline;
 }
 
-.sectionSpamContainer::before {
-  content: " ";
-  background: url(@/assets/img/utility/bar6.png);
-  width: 100%;
-  height: 49px;
-  position: absolute;
-  top: -1px;
-  left: 0;
+input#checkbox {
+  align-self: baseline;
+  background: none;
+  border: none;
 }
 
 .sectionSpamContainer {
   background: #000;
   position: relative;
-}
 
-.sectionSpamContainer::after {
-  content: " ";
-  background: url(@/assets/img/utility/bar6inv.png);
-  width: 100%;
-  height: 50px;
-  position: absolute;
-  bottom: -2px;
-  left: 0;
+  &::before {
+    content: " ";
+    background: url(@/assets/img/utility/bar6.png);
+    width: 100%;
+    height: 49px;
+    position: absolute;
+    top: -1px;
+    left: 0;
+  }
+
+  &::after {
+    content: " ";
+    background: url(@/assets/img/utility/bar6inv.png);
+    width: 100%;
+    height: 50px;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+  }
 }
 
 .sectionSpamBox::before {
@@ -194,15 +199,8 @@ input#checkbox {
 }
 
 .sectionSpam {
-  display: grid;
   grid-template-rows: 1fr;
   grid-template-columns: 2fr 3fr 1fr;
   max-width: 1400px;
-  margin: auto;
-  padding: 50px 0 50px 0 !important;
-}
-
-.fieldLeftContainer {
-  padding-top: 50px;
 }
 </style>

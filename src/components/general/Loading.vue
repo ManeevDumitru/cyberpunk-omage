@@ -17,7 +17,7 @@ const rectangles = ref(
     id: i,
     revealed: false,
     delay: 0,
-    shade: Math.random() * 0.2 - 0.1, // Random shade variation between -10% and +10%
+    shade: Math.random() * 0.2 - 0.1,
   })),
 );
 
@@ -121,15 +121,11 @@ onUnmounted(() => clearTimeout(timer));
             transitionDelay: `${rect.delay || 0}s`,
           }"
         >
-          <slot
-            name="content"
-            :revealedRectangles="rectangles.filter((r) => r.clicked).length"
-          ></slot>
+        
         </div>
       </div>
     </div>
   </div>
-  <slot v-if="!showLoading && rectangles.every((r) => r.clicked)"></slot>
 </template>
 
 <style scoped>

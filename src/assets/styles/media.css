@@ -68,11 +68,8 @@
   .sectionGalleryName {
     grid-area: 1/1/1/3;
   }
-  .sectionGalleryName h2::after {
-  }
   .sectionGalleryCategory {
     grid-area: 2/1/2/3;
-    padding: 25px 0;
   }
   .categoriesContainer {
     margin: 0 auto;
@@ -103,7 +100,7 @@
     top: 30%;
   }
   .fieldForLabel::after {
-    bottom: -5px;
+    bottom: -12px;
   }
   .fieldForText {
     display: none;
@@ -147,10 +144,6 @@
     font-size: 22px;
     max-width: 600px;
   }
-  .sectionSpam,
-  .sectionSpamContainer::after {
-    display: none;
-  }
   .sectionNewsTitle h2 {
     text-align: center;
   }
@@ -158,11 +151,6 @@
     position: absolute;
     left: 50%;
     transform: translate(-50%);
-  }
-  .sectionNewsBox {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(5, 1fr);
   }
   #firstUl {
     grid-template-columns: 1fr;
@@ -217,36 +205,14 @@
     display: grid;
     grid-template-rows: 130px 1fr;
   }
-  .sectionGalleryCategory {
-    display: none;
-  }
   #secondUl li:last-child {
     display: block;
   }
 }
 
 @media screen and (max-width: 800px) {
-  header,
-  .headerUnderContainer {
-    overflow: hidden;
-    height: 120vw;
-  }
-  .headerContainer {
-    margin: auto;
-    position: relative;
-    z-index: 1;
-    overflow: hidden;
-  }
-  .headerAwards {
-    padding: 15px;
-  }
-  .headerAwards img {
-    height: 26px;
-  }
-  .headerRightField {
-    width: 100px;
-    padding: 15px;
-  }
+
+
   .headerRightFieldStudio img {
     height: 37px;
   }
@@ -287,27 +253,6 @@
   .categoriesContainer {
     width: 100%;
   }
-  .fContentB ul {
-    display: grid;
-    grid-template-rows: 1fr 1fr;
-    grid-gap: 0;
-  }
-  .fContentB ul li {
-    text-align: center;
-  }
-  .fContentB ul li a {
-    font-size: 21px;
-    color: #fcee0a;
-  }
-  .fContentB ul li:first-child {
-    grid-area: 1/1/1/-1;
-  }
-  .fContentB ul li:last-child {
-    grid-area: 2/1/2/-1;
-  }
-  .fContentB ul img {
-    display: none;
-  }
 }
 
 @media screen and (max-width: 500px) {
@@ -325,12 +270,5 @@
   }
   .featureBox {
     width: 100%;
-  }
-  .sectionNewsBox {
-    padding: 0;
-  }
-  .fContentTop #firstUl a,
-  #WTFm {
-    font-size: 24px;
   }
 }

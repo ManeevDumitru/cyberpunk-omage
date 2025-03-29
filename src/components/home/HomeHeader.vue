@@ -40,7 +40,7 @@ turnOn();
     <section class="headerUnderVideo">
       <div class="headerUnderVideoDate">Released</div>
       <a href="https://www.cyberpunk.net/gb/ru/pre-order">
-        <div class="headerUnderVideoButton">
+        <div class="headerUnderVideoButton relative">
           <span>Buy now_</span>
         </div>
       </a>
@@ -203,5 +203,26 @@ turnOn();
   border-width: 7px 0 0 7px;
   border-color: transparent transparent transparent #00ffff;
   transform: rotate(0deg);
+}
+
+@media screen and (max-width: 800px) {
+  header,
+  .headerUnderContainer {
+    overflow: hidden;
+    height: 120vw;
+  }
+  .headerContainer {
+    margin: auto;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+  }
+  .headerAwards img {
+    height: 26px;
+  }
+  .headerRightField {
+    width: 100px;
+    padding: 15px;
+  }
 }
 </style>

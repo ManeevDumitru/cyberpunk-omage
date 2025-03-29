@@ -32,7 +32,7 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <section class="reviews-section">
+  <section class="reviews-section my-6">
     <div class="reviews-wrapper">
       <TransitionGroup name="fade" tag="div" class="reviews-container">
         <div
