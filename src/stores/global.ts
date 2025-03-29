@@ -2,8 +2,10 @@ import { acceptHMRUpdate, defineStore } from "pinia";
 
 const useGlobalStore = defineStore("global", {
   state: () => ({
-    isAppLoading: false,
-    isAppLoaded: true
+    // isAppLoading: false,
+    // isAppLoaded: true,
+    isAppLoading: true,
+    isAppLoaded: false
   }),
 
   actions: {

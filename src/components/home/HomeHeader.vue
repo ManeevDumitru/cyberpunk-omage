@@ -95,6 +95,16 @@ turnOn();
   position: relative;
   z-index: 0;
   overflow: hidden;
+  
+  &::after {
+    content: " ";
+    background: url(/src/assets/img/utility/bar1.png);
+    width: 105%;
+    height: 49px;
+    position: absolute;
+    bottom: -5px;
+    left: -2%;
+  }
 }
 
 .headerCP77Wrapper::before {

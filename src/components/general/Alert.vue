@@ -199,6 +199,13 @@ onUnmounted(() => {
   }
 }
 
+.glitch-animation {
+  animation:
+    glitch-skew 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    glitch-shift 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+    color-split 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
 @keyframes move-right {
   0% {
     transform: translateX(0);
@@ -227,12 +234,7 @@ onUnmounted(() => {
   }
 }
 
-.glitch-animation {
-  animation:
-    glitch-skew 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-    glitch-shift 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94),
-    color-split 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-}
+
 
 .glitch-rect {
   position: absolute;
