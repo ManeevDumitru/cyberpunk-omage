@@ -5,7 +5,7 @@
   <section class="introduction">
     <div class="introduction-inner">
       <div class="boxForIntroduction">
-        <div class="fieldForLabel relative">It's not enough to be yourself...</div>
+        <div class="fieldForLabel text-lg lg:text-2xl relative mb-4">It's not enough to be yourself...</div>
         <p class="fieldForText">
           Cyberpunk 2077 is an upcoming role-playing video game developed by CD Projekt Red, an
           internal studio of publisher CD Projekt, that is releasing for Microsoft Windows,
@@ -81,32 +81,40 @@
 
 .boxForIntroduction {
   background: #fcee0a;
-  width: 500px;
+  max-width: 500px;
   position: absolute;
   right: 0;
   top: 50%;
   transform: translate(0, -50%);
   padding: 25px 55px 25px;
   display: grid;
-  grid-template-rows: 100px 1fr;
-  overflow: hidden;
+  grid-template-rows: auto 1fr;
+  //overflow: hidden;
   z-index: 2;
+  
+  &::after {
+    content: " ";
+    background: url(@/assets/img/utility/bar5.png);
+    width: 100%;
+    height: 30px;
+    position: absolute;
+    bottom: -30px;
+    left: 0;
+  }
+  
+  @media screen and (max-width: 1000px){
+    & {
+      display: block;
+      padding: 25px 25px;
+      position: absolute;
+      right: 0;
+      top: 30%;
+    }
+  }
 }
-
-.boxForIntroduction::after {
-  content: " ";
-  background: url(@/assets/img/utility/bar5.png);
-  width: 100%;
-  height: 30px;
-  position: absolute;
-  bottom: -29px;
-  left: 0;
-}
-
 
 .fieldForLabel {
   text-transform: uppercase;
-  margin-bottom: 0;
   font-weight: 700;
 }
 
@@ -116,7 +124,7 @@
   width: 500px;
   height: 10px;
   position: absolute;
-  bottom: 16px;
+  bottom: -6px;
   left: 0;
 }
 
@@ -135,5 +143,11 @@
   padding: 0 10.66667vw 0;
   display: none;
   font-family: "Arial", monospace, sans-serif;
+  
+  @media screen and (max-width: 1000px) {
+    & {
+      display: block
+    }
+  }
 }
 </style>

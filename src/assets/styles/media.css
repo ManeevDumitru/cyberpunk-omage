@@ -73,14 +73,6 @@
     background-size: 100%;
     background: url(@/assets/img/bg/CP77zoc.png) top no-repeat;
   }
-  .boxForIntroduction {
-    display: block;
-    width: 60%;
-    padding: 25px 25px;
-    position: absolute;
-    right: 0;
-    top: 30%;
-  }
   .fieldForText {
     display: none;
   }
