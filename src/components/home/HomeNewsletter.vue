@@ -16,7 +16,7 @@ const errors = ref({});
 
 const schema = yup.object({
   email: yup.string().required().email(),
-  check: yup.boolean().optional(),
+  check: yup.boolean().required('Required!').oneOf([true], 'Required!'),
 });
 
 const { validate, values, setErrors } = useForm({
@@ -193,7 +193,6 @@ input#checkbox {
 }
 
 .sectionSpamBox {
-  max-width: 2200px;
   margin: auto;
   background: #efe600;
 }

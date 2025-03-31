@@ -11,7 +11,7 @@ turnOn();
 </script>
 
 <template>
-  <div class="headerContainer">
+  <div class=" ">
     <div class="headerAwards">
       <img src="@/assets/img/logo/Awards.png" alt="Awards Missing" />
     </div>
@@ -74,7 +74,6 @@ turnOn();
   z-index: 1;
   padding: 35px;
   display: grid;
-  grid-template-columns: 1fr 190px;
 }
 
 .headerRightFieldLinks {
@@ -89,7 +88,7 @@ turnOn();
 
 .headerCP77Wrapper {
   height: 100vh;
-  min-height: 900px;
+  min-height: 600px;
   width: 100%;
   margin: auto;
   position: relative;
@@ -114,7 +113,7 @@ turnOn();
   background-position: center;
   background-size: cover;
   height: 100vh;
-  min-height: 900px;
+  min-height: 600px;
   width: 100vw;
   margin: auto;
   position: absolute;
@@ -215,6 +214,23 @@ turnOn();
   transform: rotate(0deg);
 }
 
+@media screen and (max-width: 1100px) {
+  .headerUnderVideoButton {
+    background: none;
+    width: 250px;
+    height: 65px;
+    font-size: 20px;
+    line-height: 65px;
+    position: relative;
+    z-index: 2;
+  }
+  .headerUnderVideoButton::after {
+    background: url(@/assets/img/utility/AngleButtonc.png);
+    width: 250px;
+    height: 65px;
+    z-index: 1;
+  }
+}
 @media screen and (max-width: 800px) {
   header,
   .headerUnderContainer {

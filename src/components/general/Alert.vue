@@ -106,7 +106,7 @@ onUnmounted(() => {
       :class="{ 'opacity-1': !isVisible && !isDisappearing }"
     >
       <div
-        class="alert-container p-4 bg-gray-800 text-white rounded shadow-lg"
+        class="alert-container p-4 bg-[#efe600] border border-black text-black rounded shadow-lg"
         :class="{ 'alert-move-right': isDisappearing, 'glitch-animation': !isDisappearing }"
       >
         {{ text }}
@@ -233,8 +233,6 @@ onUnmounted(() => {
     transform: translateX(120%) scaleX(1.2);
   }
 }
-
-
 
 .glitch-rect {
   position: absolute;

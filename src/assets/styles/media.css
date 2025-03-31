@@ -45,21 +45,6 @@
   .headerUnderVideoPlatforms {
     color: #d6d10b;
   }
-  .headerUnderVideoButton {
-    background: none;
-    width: 250px;
-    height: 65px;
-    font-size: 20px;
-    line-height: 65px;
-    position: relative;
-    z-index: 2;
-  }
-  .headerUnderVideoButton::after {
-    background: url(@/assets/img/utility/AngleButtonc.png);
-    width: 250px;
-    height: 65px;
-    z-index: 1;
-  }
   .sectionGalleryContainer {
     display: grid;
     grid-template-columns: 1fr;
@@ -88,9 +73,6 @@
     background-size: 100%;
     background: url(@/assets/img/bg/CP77zoc.png) top no-repeat;
   }
-  .fieldForLabel {
-    font-size: 32px;
-  }
   .boxForIntroduction {
     display: block;
     width: 60%;
@@ -98,9 +80,6 @@
     position: absolute;
     right: 0;
     top: 30%;
-  }
-  .fieldForLabel::after {
-    bottom: -12px;
   }
   .fieldForText {
     display: none;
