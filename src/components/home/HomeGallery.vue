@@ -24,8 +24,9 @@ const isActiveCategory = (item: HomeGalleryCategoryInterface) => {
 };
 
 const getStyling = (item: string) => {
+  const imageUrl = new URL(`../../assets/img/bg/${item}.png`, import.meta.url).href;
   return {
-    backgroundImage: `url(/src/assets/img/bg/${item}.png)`,
+    backgroundImage: `url(${imageUrl})`,
     backgroundSize: "cover",
     backgroundPosition: "center",
   };

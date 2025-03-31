@@ -15,19 +15,22 @@
 
 @font-face {
   font-family: "Odibee Sans";
-  src: url("src/assets/fonts/Odibee_Sans/OdibeeSans-Regular.ttf");
+  src: url("../fonts/Odibee_Sans/OdibeeSans-Regular.ttf");
 }
 
 *:focus {
   outline: none;
 }
 
-html,body {
-  line-height: 1;
-  scrollbar-gutter: stable both-edges;
+:root {
+  --scrollbar-width: 17px;
+  scrollbar-gutter: stable;
 }
 
-
+body {
+  line-height: 1;
+  scrollbar-gutter: stable both-edges !important;
+}
 
 body {
   letter-spacing: 0.2px;
@@ -35,6 +38,10 @@ body {
   width: 100%;
   background: black;
   font-family: "Blender Pro", sans-serif;
+}
+
+body.scrollable {
+
 }
 
 ul {
@@ -53,17 +60,17 @@ audio {
   z-index: 5;
 }
 
-::-webkit-scrollbar {
-  width: 8px;
-}
+/*::-webkit-scrollbar {*/
+/*  width: 8px;*/
+/*}*/
 
-::-webkit-scrollbar-track {
-  border-radius: 5px;
-}
+/*::-webkit-scrollbar-track {*/
+/*  border-radius: 5px;*/
+/*}*/
 
-::-webkit-scrollbar-thumb {
-  background-color: #efe600;
-}
+/*::-webkit-scrollbar-thumb {*/
+/*  background-color: #efe600;*/
+/*}*/
 
 /* */
 

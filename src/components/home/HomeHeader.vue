@@ -23,11 +23,6 @@ turnOn();
           </a>
         </li>
       </ul>
-      <div class="headerRightFieldStudio">
-        <a href="https://en.cdprojektred.com/"
-          ><img src="@/assets/img/logo/CDPRlogoc.png" alt=""
-        /></a>
-      </div>
     </div>
     <section class="headerCP77Wrapper">
       <a href="https://www.youtube.com/watch?v=YApuEWtG30w">

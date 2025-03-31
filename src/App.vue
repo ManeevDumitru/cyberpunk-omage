@@ -24,6 +24,7 @@ watch(
     }
 
     document.body.style.overflow = style;
+    // document.body.style.scrollbarGutter = 'stable';
   }, {
     immediate: true
   }
