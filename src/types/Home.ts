@@ -13,3 +13,9 @@ export interface HomeGalleryCategoryInterface {
   value: string;
   images: HomeGalleryImagesInterface[];
 }
+
+export interface HomeFeatureInterface {
+  title: string;
+  desc: string;
+  imgPath: string;
+}

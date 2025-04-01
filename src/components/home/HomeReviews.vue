@@ -40,7 +40,7 @@ onUnmounted(() => {
           class="reviewContent previous-review"
           :class="{ 'glitch-animation': isAnimating }"
         >
-          <div class="rcT">{{ previousReview.title }}</div>
+          <div class="rcT text-xl">{{ previousReview.title }}</div>
           <div class="rcB">{{ previousReview.outlet }}</div>
         </div>
         <div
@@ -48,12 +48,12 @@ onUnmounted(() => {
           class="reviewContent active-review"
           :class="{ emerging: isAnimating }"
         >
-          <div class="rcT">{{ activeReview.title }}</div>
+          <div class="rcT text-xl">{{ activeReview.title }}</div>
           <div class="rcB">{{ activeReview.outlet }}</div>
         </div>
       </TransitionGroup>
     </div>
-    <p class="release-date-container">Already released!</p>
+    <p class="release-date-container text-xl">Already released!</p>
   </section>
 </template>
 

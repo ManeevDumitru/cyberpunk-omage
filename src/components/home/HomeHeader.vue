@@ -24,15 +24,15 @@ turnOn();
         </li>
       </ul>
     </div>
-    <section class="headerCP77Wrapper">
+    <div class="headerCP77Wrapper">
       <a href="https://www.youtube.com/watch?v=YApuEWtG30w">
         <div class="headerCP77VideoContainer">
           <video autoplay muted loop src="@/assets/video/CP77.mp4" />
           <span id="beepingItem" v-if="isBlinking"></span>
         </div>
       </a>
-    </section>
-    <section class="headerUnderVideo">
+    </div>
+    <div class="headerUnderVideo">
       <div class="headerUnderVideoDate">Released</div>
       <a href="https://www.cyberpunk.net/gb/ru/pre-order">
         <div class="headerUnderVideoButton relative">
@@ -41,11 +41,11 @@ turnOn();
       </a>
       <ul class="headerUnderVideoPlatforms">
         <li v-for="(item, index) in platforms" :key="index" class="text-center">
-          <SVGIcon type="mdi" :path="item.icon" />
+          <SVGIcon type="mdi" :path="item.icon" class="mx-auto"/>
           <p>{{ item.title }}</p>
         </li>
       </ul>
-    </section>
+    </div>
   </div>
 </template>
 
@@ -122,17 +122,31 @@ turnOn();
 .headerCP77VideoContainer {
   z-index: -1;
   position: absolute;
-  bottom: calc(100% - 53%);
-  left: calc(100% - 52.5%);
+  bottom: 52%;
+  left: 54%;
+  
+  @media screen and (max-width: 1920px) {
+    & {
+      bottom: 47%;
+      left: 48.5%;
+    }
+  }
 }
 
 .headerUnderVideo {
   position: absolute;
-  bottom: 250px;
-  left: 55%;
+  bottom: 35%;
+  left: 60%;
   z-index: 1;
   display: grid;
   grid-template-rows: 50px 1fr 50px;
+  
+  @media screen and (max-width: 1920px) {
+    & {
+      bottom: 25%;
+      left: 55%;
+    }
+  }
 }
 
 .headerUnderVideoDate {
@@ -182,8 +196,7 @@ turnOn();
 }
 
 .headerCP77VideoContainer video {
-  min-height: 240px;
-  max-height: 360px;
+  max-height: 30%;
 }
 
 #beepingItem {

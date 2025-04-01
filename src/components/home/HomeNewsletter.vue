@@ -50,8 +50,8 @@ const submit = async () => {
         <div class="sectionSpam block lg:grid py-12 mx-4 lg:mx-auto">
           <div class="fieldLeft mt-4 lg:ml-2 mr-4">
             <div class="fieldLeftContainer">
-              <h2 class="text-5xl mb-2">Be the first one!</h2>
-              <p class="text-lg">Subscribe to get news about development of Cyberpunk 2077</p>
+              <h2 class="text-5xl leading-none mb-2">Be the first one!</h2>
+              <p>Subscribe to get news about development of Cyberpunk 2077</p>
             </div>
           </div>
           <div class="fieldMiddle my-6">
@@ -141,7 +141,6 @@ const submit = async () => {
   display: grid;
   grid-template-rows: 1fr 1fr;
   font-size: 16px;
-  font-family: "Arial", monospace;
   letter-spacing: 0.1px;
   font-weight: 200;
   padding-right: 30px;

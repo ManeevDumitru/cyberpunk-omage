@@ -121,17 +121,12 @@
 .fieldForLabel::after {
   content: " ";
   background: url(@/assets/img/utility/bar4.png);
-  width: 500px;
+  max-width: 200px;
+  width: 100%;
   height: 10px;
   position: absolute;
   bottom: -6px;
   left: 0;
-}
-
-.fieldForText {
-  font-weight: 400;
-  font-size: 16px;
-  font-family: "Arial", monospace, sans-serif;
 }
 
 #introductionP2 {
@@ -139,10 +134,8 @@
   bottom: 0;
   color: #fff;
   z-index: 2;
-  font-size: 14px;
   padding: 0 10.66667vw 0;
   display: none;
-  font-family: "Arial", monospace, sans-serif;
   
   @media screen and (max-width: 1000px) {
     & {

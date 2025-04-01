@@ -15,13 +15,13 @@ const newsItems = NEWS;
           <div class="snMainBox relative">
             <div class="snMainBoxT relative">
               <div class="rowTop">
-                <span id="snMDate">19.11.2019</span>
-                <span id="replaceMDate">More</span>
+                <span id="snMDate" class="text-xl">19.11.2019</span>
+                <span id="replaceMDate" class="text-xl">More</span>
               </div>
               <div class="rowBottom">
-                <h3>Welcome the finalists of the "Cyberpunk 2077" cosplay contest!</h3>
+                <h3 class="text-xl sm:text-2xl lg:text-3xl leading-none">Welcome the finalists of the "Cyberpunk 2077" cosplay contest!</h3>
               </div>
-              <div class="snMainBoxB">
+              <div class="snMainBoxB leading-none text-lg lg:text-xl">
                 The best cosplay costumes we're chosen and we present you the results!
               </div>
             </div>
@@ -34,10 +34,10 @@ const newsItems = NEWS;
           <div class="newsBox">
             <div class="newsBoxT relative">
               <div class="relative">
-                <span class="replaceSDate">More</span>
-                <span class="date">{{ news.date }}</span>
+                <span class="replaceSDate text-xl">More</span>
+                <span class="date text-xl">{{ news.date }}</span>
               </div>
-              <h3>{{ news.title }}</h3>
+              <h3 class="text-xl sm:text-2xl lg:text-3xl leading-none">{{ news.title }}</h3>
             </div>
           </div>
         </a>

@@ -1,33 +1,36 @@
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import type { HomeFeatureInterface } from "@/types/Home.ts";
+import { features } from "@/static/Features.ts";
+
+const getStyling = (item: HomeFeatureInterface) => {
+  const imageUrl = new URL(`../../assets/img/bg/${item.imgPath}`, import.meta.url).href;
+  console.log(`../../${item.imgPath}`);
+  return {
+    backgroundImage: `url(${imageUrl})`,
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+  };
+};
+
+const featureItems = features.map((item) => {
+  return {
+    ...item,
+    styling: getStyling(item),
+  };
+});
+</script>
 
 <template>
   <section class="features">
     <div class="featuresWrapper">
-      <div class="featureBoxWrapper">
-        <div class="featureBox">
-          <div class="featureBoxText">Play as a hired mercenary</div>
+      <div v-for="(item, index) in featureItems" :key="index" class="featureBoxWrapper">
+        <div :style="item.styling" class="featureBox">
+          <div class="featureBoxText text-xl">
+            {{ item.title }}
+          </div>
         </div>
         <p>
-          Become a cyberpunk, an urban mercenary equipped with cybernetic enhancements and build
-          your legend on the streets of Night City.
-        </p>
-      </div>
-      <div class="featureBoxWrapper">
-        <div class="featureBox">
-          <div class="featureBoxText">Explore the NightCity</div>
-        </div>
-        <p>
-          Enter the massive open world of Night City, a place that sets new standards in terms of
-          visuals, complexity and depth.
-        </p>
-      </div>
-      <div class="featureBoxWrapper">
-        <div class="featureBox">
-          <div class="featureBoxText">Keanu Motherf*cking Reeves</div>
-        </div>
-        <p>
-          Take the riskiest job of your life and go after a prototype implant that is the key to
-          immortality with JOHNY SILVERHAND.
+          {{ item.desc }}
         </p>
       </div>
     </div>
